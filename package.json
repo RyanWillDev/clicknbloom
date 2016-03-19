@@ -10,6 +10,8 @@
   "license": "ISC",
   "devDependencies": {
     "gulp": "^3.9.1",
-    "node-sass": "^3.4.2"
+    "gulp-sass": "^2.2.0",
+    "node-bourbon": "^4.2.6",
+    "node-neat": "^1.7.2"
   }
 }

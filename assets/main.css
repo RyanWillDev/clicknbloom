@@ -1,0 +1,33 @@
+html {
+  box-sizing: border-box; }
+
+*, *::after, *::before {
+  box-sizing: inherit; }
+
+.products {
+  display: block;
+  max-width: 80%;
+  margin-left: auto;
+  margin-right: auto; }
+
+.products::after {
+  clear: both;
+  content: "";
+  display: table; }
+
+.products::after {
+  clear: both;
+  content: "";
+  display: table; }
+
+.box {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 23.23176%;
+  background-color: tomato;
+  height: 100px;
+  width: 200px; }
+
+.box:last-child {
+  margin-right: 0; }
