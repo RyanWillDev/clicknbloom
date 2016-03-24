@@ -2,18 +2,22 @@
 
 var gulp = require('gulp');
 var sass = require('gulp-sass');
-var bourbon = require('node-bourbon');
-var neat = require('node-neat');
+var sourcemaps = require('gulp-sourcemaps');
+// var bourbon = require('node-bourbon'); // Testing if these lines are required
+// var neat = require('node-neat');
 
 // Compiles Sass
 
 gulp.task('compileSass', function() {
-  gulp.src('assets/sass/main.scss')
+  return gulp.src('assets/sass/main.scss')
+  .pipe(sourcemaps.init())
   .pipe(sass({ includePaths: require('node-neat').includePaths })) // Includes both Bourbon and Neat
   .pipe(sass().on('error', sass.logError))
+  .pipe(sourcemaps.write())
   .pipe(gulp.dest('assets/'));
 });
 
+// Watches Sass Files runs compileSass task
 gulp.task('watchSass', function() {
   gulp.watch('assets/sass/**/*.scss', ['compileSass']);
 });

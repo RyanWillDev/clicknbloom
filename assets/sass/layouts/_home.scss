@@ -1,0 +1,42 @@
+/* Homepage Styles 
+============================= */
+
+.main {
+  @include background-image(url(img/home-image.jpg));
+  background-position: 0 -275px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  padding-top: 5px;
+  -webkit-filter: sepia(50%) brightness(80%) contrast(70%);
+  filter: sepia(50%) brightness(80%) contrast(70%);
+
+  @media (max-width: 1000px) {
+    background-size: initial;
+    background-position: -600px -75px;
+  }
+}
+
+.main__content {
+  @include outer-container(90%);
+  text-align: center;
+
+  margin-top: em(250px);
+  
+  h1 {
+    font-family: $font-ds, $helvetica;
+    font-size: em(104px);
+
+    margin-bottom: 16px;
+  }
+
+  h2 {
+    font-family: $font-ds, $helvetica;
+    font-size: em(40px);
+    margin-top: 16px;
+  }
+
+  @media (max-width: 1000px) {
+    margin-top: em(400px);
+  }
+}
