@@ -11,6 +11,10 @@ nav {
 #nav__logo {
   @include span-columns(5);
   @include shift(1);
+
+  @media (max-width: 640px) {
+    @include span-columns(3);
+  }
 }
 
 .nav__link {
@@ -27,6 +31,16 @@ nav {
     &:hover {
       border-color: black;
       color: black;
+    }
+  }
+
+  @media (max-width: 640px) {
+    @include span-columns(3);
+    @include shift(1);
+    font-size: em(12px);
+
+    &.desk-only {
+      display: none;
     }
   }
 }
