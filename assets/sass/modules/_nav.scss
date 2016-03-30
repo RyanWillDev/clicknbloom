@@ -28,7 +28,7 @@ nav {
     font-weight: bold;
     
     padding: 5px;
-    &:hover {
+    &:hover, &.active {
       border-color: black;
       color: black;
     }
