@@ -15,12 +15,12 @@ function createProductArray(data) {
 }
 
 // Updates the listingsData array
-function updateListings(data) {
-  console.log(data.params.listing_id);
-  for (var i = 0; i < data.length; i++) {
-    console.log(i);
-    listingsData[i].thumb = data.results[0].url_570xN;
-    listingsData[i].full = data.results[0].url_fullxfull;
+function updateListingsData(data) {
+  for (var i = 0; i < listingsData.length; i++) {
+    if (data.results[0].listing_id === listingsData[i].id) {
+      listingsData[i].thumb = data.results[0].url_170x135;
+      listingsData[i].full = data.results[0].url_fullxfull;
+    }
   }
 }
 
@@ -30,7 +30,7 @@ function getImgs() {
     $.ajax({
       url: 'https://openapi.etsy.com/v2/listings/' + listingsData[i].id + '/images.js?&api_key=w1db2hhyn6vtfn79hy4ahzhj',
       dataType: 'jsonp',
-    }).success(updateListings);
+    }).done(updateListingsData);
   }
 }
 
@@ -43,8 +43,10 @@ function displayListings() {
   for (var i = 0; i < listingsData.length; i++) {
     html = '<li class="featured-list-item">';
     html += '<div class="product">';
-    html += '<a href=""><img class="product-img" src="" alt=""></a></div>';
-    html += '<a class="title" href="' + listingsData[i].url + '">' + listingsData[i].title + '</a></li>';
+    html += '<a href=""><img class="product-img" src="' + listingsData[i].thumb;
+    html += '"alt="' + listingsData[i].title + ' "></a></div>';
+    html += '<a class="title" href="' + listingsData[i].url + '">';
+    html += listingsData[i].title + '</a></li>';
     featList.append(html);
   }
 }
@@ -52,14 +54,14 @@ function displayListings() {
 // Callback for Etsy API call
 function getData(data) {
   if (data.ok) {
+    console.log(data.results);
     createProductArray(data.results);
     getImgs();
-    displayListings();
+    // displayListings();
   } else {
     console.log('No featured items found.');
   }
 }
-
 
 // Requests featured items from Etsy
 $.ajax({
