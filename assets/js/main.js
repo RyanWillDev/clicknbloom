@@ -2,6 +2,7 @@
 
 // Array to store all the data for each listing
 var listingsData = [];
+var counter = 0;
 
 // Adds the results from the AJAX request
 function createProductArray(data) {
@@ -11,26 +12,6 @@ function createProductArray(data) {
       title: data[i].title,
       url: data[i].url,
     };
-  }
-}
-
-// Updates the listingsData array
-function updateListingsData(data) {
-  for (var i = 0; i < listingsData.length; i++) {
-    if (data.results[0].listing_id === listingsData[i].id) {
-      listingsData[i].thumb = data.results[0].url_170x135;
-      listingsData[i].full = data.results[0].url_fullxfull;
-    }
-  }
-}
-
-// Another AJAX request for the images associated with the listings
-function getImgs() {
-  for (var i = 0; i < listingsData.length; i++) {
-    $.ajax({
-      url: 'https://openapi.etsy.com/v2/listings/' + listingsData[i].id + '/images.js?&api_key=w1db2hhyn6vtfn79hy4ahzhj',
-      dataType: 'jsonp',
-    }).done(updateListingsData);
   }
 }
 
@@ -51,13 +32,36 @@ function displayListings() {
   }
 }
 
+// Updates the listingsData array
+function updateListingsData(data) {
+  for (var i = 0; i < listingsData.length; i++) {
+    if (data.results[0].listing_id === listingsData[i].id) {
+      listingsData[i].thumb = data.results[0].url_170x135;
+      listingsData[i].full = data.results[0].url_fullxfull;
+      counter++;
+    }
+  }
+  if (counter === 6) {
+    displayListings();
+  }
+}
+
+// Another AJAX request for the images associated with the listings
+function getImgs() {
+  for (var i = 0; i < listingsData.length; i++) {
+    $.ajax({
+      url: 'https://openapi.etsy.com/v2/listings/' + listingsData[i].id + '/images.js?&api_key=w1db2hhyn6vtfn79hy4ahzhj',
+      dataType: 'jsonp',
+    }).done(updateListingsData);
+  }
+}
+
 // Callback for Etsy API call
 function getData(data) {
   if (data.ok) {
-    console.log(data.results);
     createProductArray(data.results);
     getImgs();
-    // displayListings();
+    // displayListings(); Commented out for testing
   } else {
     console.log('No featured items found.');
   }
