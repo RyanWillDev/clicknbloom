@@ -11,7 +11,6 @@ var sourcemaps = require('gulp-sourcemaps');
 gulp.task('compileSass', function() {
   return gulp.src('assets/sass/main.scss')
   .pipe(sourcemaps.init())
-  .pipe(sass({ includePaths: require('node-neat').includePaths })) // Includes both Bourbon and Neat
   .pipe(sass().on('error', sass.logError))
   .pipe(sourcemaps.write())
   .pipe(gulp.dest('assets/'));

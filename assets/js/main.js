@@ -2,6 +2,8 @@
 
 // Array to store all the data for each listing
 var listingsData = [];
+
+// Used to call displayListings
 var counter = 0;
 
 // Adds the results from the AJAX request
@@ -27,13 +29,14 @@ function displayListings() {
     html += '<a href=""><img class="product-img" src="' + listingsData[i].thumb;
     html += '"alt="' + listingsData[i].title + ' "></a></div>';
     html += '<a class="title" href="' + listingsData[i].url + '">';
-    html += listingsData[i].title + '</a></li>';
+    html += /* listingsData[i].title + */  '</a></li>';
     featList.append(html);
   }
 }
 
 // Updates the listingsData array
 function updateListingsData(data) {
+  console.log(data);
   for (var i = 0; i < listingsData.length; i++) {
     if (data.results[0].listing_id === listingsData[i].id) {
       listingsData[i].thumb = data.results[0].url_170x135;
@@ -41,7 +44,7 @@ function updateListingsData(data) {
       counter++;
     }
   }
-  if (counter === 6) {
+  if (counter === listingsData.length) {
     displayListings();
   }
 }
@@ -69,8 +72,7 @@ function getData(data) {
 
 // Requests featured items from Etsy
 $.ajax({
-  url: 'https://openapi.etsy.com/v2/shops/clickandbloom/listings/featured.js?callback=getData&api_key=w1db2hhyn6vtfn79hy4ahzhj',
+  url: 'https://openapi.etsy.com/v2/shops/clickandbloom/listings/featured/.js?callback=getData&limit=8&api_key=w1db2hhyn6vtfn79hy4ahzhj',
   dataType: 'jsonp',
 })
 .done(getData);
-

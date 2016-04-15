@@ -2,9 +2,12 @@
 ============================= */
 body {
   color: $light-black;
-  font-family: $helvetica;
 }
 
 a {
   text-decoration: none;
+}
+
+li {
+  list-style: none;
 }
