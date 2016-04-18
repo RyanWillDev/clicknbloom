@@ -73,4 +73,3 @@ $.ajax({
   dataType: 'jsonp',
 })
 .done(getData);
-
