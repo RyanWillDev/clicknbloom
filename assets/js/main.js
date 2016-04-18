@@ -41,7 +41,7 @@ function updateListingsData(data) {
       counter++;
     }
   }
-  if (counter === 6) {
+  if (counter === listingsData.length) {
     displayListings();
   }
 }
@@ -69,7 +69,7 @@ function getData(data) {
 
 // Requests featured items from Etsy
 $.ajax({
-  url: 'https://openapi.etsy.com/v2/shops/clickandbloom/listings/featured.js?callback=getData&api_key=w1db2hhyn6vtfn79hy4ahzhj',
+  url: 'https://openapi.etsy.com/v2/shops/clickandbloom/listings/featured.js?limit=8&callback=getData&api_key=w1db2hhyn6vtfn79hy4ahzhj',
   dataType: 'jsonp',
 })
 .done(getData);
