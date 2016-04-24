@@ -1,2 +1,23 @@
 /* Navigation Styles 
 ============================= */
+header {
+  width: 100%;
+}
+
+.nav-list {
+  display: flex;
+  justify-content: space-between;
+
+  width: 90%;
+}
+
+.nav-right {
+  display: flex;
+  justify-content: space-between;
+  width: 40%;
+}
+
+.nav__logo {
+  flex-basis: 1; 
+  margin-right: auto;
+}
