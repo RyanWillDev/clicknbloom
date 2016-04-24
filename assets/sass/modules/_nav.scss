@@ -5,19 +5,59 @@ header {
 }
 
 .nav-list {
+  align-items: center;
   display: flex;
+  font-family: $font-web-sec;
+  font-size: 2em;
   justify-content: space-between;
+  width: 95%;
 
-  width: 90%;
+  margin-top: 12px;
+  margin-right: 0;
+}
+
+.nav__link a {
+  color: $light-black;
+  border-bottom: 1px solid transparent;
+  padding: 10px 10px;
+
+  &:hover {
+    color: black;
+    border-color: black;
+  }
 }
 
 .nav-right {
   display: flex;
   justify-content: space-between;
-  width: 40%;
+  width: 35%;
+  
+  margin-right: 0;
 }
 
-.nav__logo {
-  flex-basis: 1; 
+#nav__logo {
+  background-image: url('./img/C&B.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 60px;
+  flex: 1; 
+  width: 120px;
+  
   margin-right: auto;
+
+  & a {
+    padding: 25px 25px;
+  }
 }
+
+
+
+
+
+
+
+
+
+
+
+

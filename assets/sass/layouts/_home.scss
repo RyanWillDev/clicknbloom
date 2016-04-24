@@ -3,11 +3,29 @@
 
 .hero {
   background-image: url('img/home-image.jpg');
+  background-position: 0 -200px, center;
   background-repeat: no-repeat;
   background-size: cover;
   height: 90vh;
   padding-top: 5px;
   -webkit-filter: sepia(50%) brightness(80%) contrast(70%);
   filter: sepia(50%) brightness(80%) contrast(70%);
+}
+
+.hero__content {
+  text-align: center;
+}
+
+.hero__content--title {
+  font-family: $font-web;
+  font-size: 6rem;
+
+  margin-top: 96px;
+  margin-bottom: 8px;
+}
+
+.hero__content--desc {
+  font-family: $font-web;
+  font-size: 2em;
 }
 
