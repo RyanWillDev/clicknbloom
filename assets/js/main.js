@@ -13,6 +13,7 @@ function createProductArray(data) {
       id: data[i].listing_id,
       title: data[i].title,
       url: data[i].url,
+      price: data[i].price,
     };
   }
 }
@@ -62,6 +63,7 @@ function getImgs() {
 // Callback for Etsy API call
 function getData(data) {
   if (data.ok) {
+    console.log(data);
     createProductArray(data.results);
     getImgs();
     // displayListings(); Commented out for testing
