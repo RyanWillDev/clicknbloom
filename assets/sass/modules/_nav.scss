@@ -1,7 +1,16 @@
 /* Navigation Styles 
 ============================= */
 header {
+  height: 70px;
+
+  position: fixed;
+  top: 0;
   width: 100%;
+  z-index: 1000;
+}
+
+.hasScrolled {
+  background-color: #fff;
 }
 
 .nav-list {
@@ -45,9 +54,9 @@ header {
   background-image: url('./img/C&B.png');
   background-repeat: no-repeat;
   background-size: contain;
-  height: 45px;
+  height: 30px;
   flex: 1; 
-  width: 100px;
+  width: 60px;
   
   margin-right: auto;
 
@@ -56,8 +65,8 @@ header {
   }
 
   @media(min-width: 640px) {
-    height: 60px;
-    width: 120px;
+    height: 45px;
+    width: 100px;
   }
 }
 

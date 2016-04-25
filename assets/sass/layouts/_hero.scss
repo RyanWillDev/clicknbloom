@@ -3,16 +3,16 @@
 
 #hero {
   background-image: url('img/home-image.jpg');
-  background-position: 0 0px, center;
+  background-position: 0 0, center;
   background-repeat: no-repeat;
   background-size: cover;
   height: 85vh;
   padding-top: 5px;
-  -webkit-filter: sepia(50%) brightness(80%) contrast(70%);
-  filter: sepia(50%) brightness(80%) contrast(90%);
+  -webkit-filter: sepia(60%) brightness(80%) contrast(100%);
+  filter: sepia(60%) brightness(80%) contrast(100%);
 
   @media (min-width: 640px) {
-    background-position: 0 -200px;
+    background-position: 0 -350px;
   }
 }
 
@@ -24,13 +24,13 @@
   font-family: $font-web;
   font-size: 3em;
   
-  margin-top: 56px;
+  margin-top: 88px;
   margin-bottom: 16px;
 
   @media (min-width: 640px) {
     font-size: 6rem;
 
-    margin-top: 96px;
+    margin-top: 160px;
     margin-bottom: 8px;
   }
 }

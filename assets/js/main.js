@@ -78,3 +78,19 @@ $.ajax({
   dataType: 'jsonp',
 })
 .done(getData);
+
+
+// Change color on header when scrolled
+$(window).on('scroll', function () {
+  if ($(window).scrollTop() > 50) {
+    $('header').addClass('hasScrolled');
+  } else {
+    $('header').removeClass('hasScrolled');
+  }
+});
+
+
+
+
+
+
