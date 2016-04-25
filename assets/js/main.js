@@ -14,6 +14,8 @@ function createProductArray(data) {
       title: data[i].title,
       url: data[i].url,
       price: data[i].price,
+      thumb: data[i].MainImage.url_170x135,
+      full: data[i].MainImage.url_fullxfull,
     };
   }
 }
@@ -50,23 +52,11 @@ function updateListingsData(data) {
   }
 }
 
-// Another AJAX request for the images associated with the listings
-function getImgs() {
-  for (var i = 0; i < listingsData.length; i++) {
-    $.ajax({
-      url: 'https://openapi.etsy.com/v2/listings/' + listingsData[i].id + '/images.js?&api_key=w1db2hhyn6vtfn79hy4ahzhj',
-      dataType: 'jsonp',
-    }).done(updateListingsData);
-  }
-}
-
 // Callback for Etsy API call
 function getData(data) {
   if (data.ok) {
     console.log(data);
     createProductArray(data.results);
-    getImgs();
-    // displayListings(); Commented out for testing
   } else {
     console.log('No featured items found.');
   }
@@ -74,7 +64,7 @@ function getData(data) {
 
 // Requests featured items from Etsy
 $.ajax({
-  url: 'https://openapi.etsy.com/v2/shops/clickandbloom/listings/featured/.js?callback=getData&limit=8&api_key=w1db2hhyn6vtfn79hy4ahzhj',
+  url: 'https://openapi.etsy.com/v2/shops/clickandbloom/listings/featured/.js?callback=getData&limit=8&includes=MainImage&api_key=w1db2hhyn6vtfn79hy4ahzhj',
   dataType: 'jsonp',
 })
 .done(getData);
