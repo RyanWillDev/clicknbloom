@@ -3,11 +3,8 @@
 // Array to store all the data for each listing
 var listingsData = [];
 
-// Used to call displayListings
-var counter = 0; // Try to put this local to the for loop
-
 // Adds the results from the AJAX request
-function createProductArray(data) {
+function createProductArray(data, callback) {
   for (var i = 0; i < data.length; i++) {
     listingsData[i] = {
       id: data[i].listing_id,
@@ -18,11 +15,12 @@ function createProductArray(data) {
       full: data[i].MainImage.url_fullxfull,
     };
   }
+  callback();
 }
 
 // Appends the results of the AJAX requests as an <ol>
 function displayListings() {
-  var featList = $('.featured-list');
+  var featList = $('#featured-list');
   var html = '';
 
 // Creates a <li> for every item in listings and appends to featured list
@@ -31,34 +29,16 @@ function displayListings() {
     html += '<div class="product">';
     html += '<a href=""><img class="product-img" src="' + listingsData[i].thumb;
     html += '"alt="' + listingsData[i].title + ' "></a></div>';
-    html += '<a class="title" href="' + listingsData[i].url + '">';
-    html += /* listingsData[i].title + */  '</a></li>';
+    html += '<a class="title" href="' + listingsData[i].url + '" </a></li>';
     featList.append(html);
   }
 }
 
-/* No longer using updateListingsData function
-keeping for reference. once finished remove function
-*/
-// Updates the listingsData array
-// function updateListingsData(data) {
-//   console.log(data);
-//   for (var i = 0; i < listingsData.length; i++) {
-//     if (data.results[0].listing_id === listingsData[i].id) {
-//       listingsData[i].thumb = data.results[0].url_170x135;
-//       listingsData[i].full = data.results[0].url_fullxfull;
-//       counter++;
-//     }
-//   }
-//   if (counter === listingsData.length) {
-//     displayListings();
-//   }
-// }
 
 // Callback for Etsy API call
 function getData(data) {
   if (data.ok) {
-    createProductArray(data.results);
+    createProductArray(data.results, displayListings);
   } else {
     console.log('No featured items found.'); // Remove once finished
   }

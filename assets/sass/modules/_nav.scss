@@ -29,7 +29,7 @@ header {
   }
 }
 
-.nav__link a {
+.nav-link a {
   color: $light-black;
   border-bottom: 1px solid transparent;
   padding: 3px 5px;
@@ -50,7 +50,7 @@ header {
   }
 }
 
-#nav__logo {
+#nav-logo {
   background-image: url('./img/C&B.png');
   background-repeat: no-repeat;
   background-size: contain;
