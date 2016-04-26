@@ -4,7 +4,7 @@
 var listingsData = [];
 
 // Used to call displayListings
-var counter = 0;
+var counter = 0; // Try to put this local to the for loop
 
 // Adds the results from the AJAX request
 function createProductArray(data) {
@@ -37,28 +37,30 @@ function displayListings() {
   }
 }
 
+/* No longer using updateListingsData function
+keeping for reference. once finished remove function
+*/
 // Updates the listingsData array
-function updateListingsData(data) {
-  console.log(data);
-  for (var i = 0; i < listingsData.length; i++) {
-    if (data.results[0].listing_id === listingsData[i].id) {
-      listingsData[i].thumb = data.results[0].url_170x135;
-      listingsData[i].full = data.results[0].url_fullxfull;
-      counter++;
-    }
-  }
-  if (counter === listingsData.length) {
-    displayListings();
-  }
-}
+// function updateListingsData(data) {
+//   console.log(data);
+//   for (var i = 0; i < listingsData.length; i++) {
+//     if (data.results[0].listing_id === listingsData[i].id) {
+//       listingsData[i].thumb = data.results[0].url_170x135;
+//       listingsData[i].full = data.results[0].url_fullxfull;
+//       counter++;
+//     }
+//   }
+//   if (counter === listingsData.length) {
+//     displayListings();
+//   }
+// }
 
 // Callback for Etsy API call
 function getData(data) {
   if (data.ok) {
-    console.log(data);
     createProductArray(data.results);
   } else {
-    console.log('No featured items found.');
+    console.log('No featured items found.'); // Remove once finished
   }
 }
 
@@ -71,7 +73,7 @@ $.ajax({
 
 
 // Change color on header when scrolled
-$(window).on('scroll', function () {
+$(window).on('scroll', function headerScrollHandler() {
   if ($(window).scrollTop() > 50) {
     $('header').addClass('hasScrolled');
   } else {

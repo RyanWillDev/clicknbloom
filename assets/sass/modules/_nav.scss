@@ -1,7 +1,7 @@
 /* Navigation Styles 
 ============================= */
 header {
-  height: 70px;
+  height: 60px;
 
   position: fixed;
   top: 0;
@@ -10,7 +10,7 @@ header {
 }
 
 .hasScrolled {
-  background-color: #fff;
+  background-color: $header-color;
 }
 
 .nav-list {
@@ -20,7 +20,7 @@ header {
   justify-content: space-between;
   
 
-  margin-top: 12px;
+  margin-top: 8px;
   margin-right: 0;
   
   @media(min-width: 640px) {
@@ -32,7 +32,7 @@ header {
 .nav__link a {
   color: $light-black;
   border-bottom: 1px solid transparent;
-  padding: 10px 10px;
+  padding: 3px 5px;
 
   &:hover {
     color: black;
