@@ -34,7 +34,7 @@ header {
   border-bottom: 1px solid transparent;
   padding: 3px 5px;
 
-  &:hover {
+  &:hover, &.active {
     color: black;
     border-color: black;
   }
