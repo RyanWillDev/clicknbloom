@@ -26,10 +26,8 @@ function displayListings() {
 // Creates a <li> for every item in listings and appends to featured list
   for (var i = 0; i < listingsData.length; i++) {
     html = '<li class="featured-list-item">';
-    html += '<div class="product">';
-    html += '<a href=""><img class="product-img" src="' + listingsData[i].thumb;
-    html += '"alt="' + listingsData[i].title + ' "></a></div>';
-    html += '<a class="title" href="' + listingsData[i].url + '" </a></li>';
+    html += '<a href="' + listingsData[i].url + '"><img class="product-img" src="' + listingsData[i].thumb;
+    html += '"alt="' + listingsData[i].title + ' "></a></li>';
     featList.append(html);
   }
 }
@@ -38,6 +36,7 @@ function displayListings() {
 // Callback for Etsy API call
 function getData(data) {
   if (data.ok) {
+    console.log(data);
     createProductArray(data.results, displayListings);
   } else {
     console.log('No featured items found.'); // Remove once finished
