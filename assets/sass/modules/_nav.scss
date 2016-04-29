@@ -25,7 +25,6 @@ header {
   
   @media(min-width: 640px) {
     font-size: 2em;
-    width: 95%;
   }
 }
 
@@ -48,6 +47,15 @@ header {
   width: 65%;
 
   @media(min-width: 640px) {
+    font-size: 1em;
+    width: 50%;
+  }
+
+  @media(min-width: 1024px) {
+    width: 35%;
+  }
+
+  @media(min-width: 1400px) {
     width: 30%;
   }
 }
