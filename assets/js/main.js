@@ -49,7 +49,6 @@ function updateListingsData(data) {
 // Callback for Etsy API call
 function getData(data) {
   if (data.ok) {
-    console.log(data);
     createProductArray(data.results, displayListings);
   } else {
     console.log('No featured items found.'); // Remove once finished
