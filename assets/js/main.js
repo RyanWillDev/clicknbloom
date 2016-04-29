@@ -32,6 +32,19 @@ function displayListings() {
   }
 }
 
+// Updates the listingsData array
+function updateListingsData(data) {
+  for (var i = 0; i < listingsData.length; i++) {
+    if (data.results[0].listing_id === listingsData[i].id) {
+      listingsData[i].thumb = data.results[0].url_170x135;
+      listingsData[i].full = data.results[0].url_fullxfull;
+      counter++;
+    }
+  }
+  if (counter === listingsData.length) {
+    displayListings();
+  }
+}
 
 // Callback for Etsy API call
 function getData(data) {
@@ -78,3 +91,4 @@ $('a[href^="#"').on('click', function(event) {
       window.location.hash = target;
     });
 });// End click handler
+
