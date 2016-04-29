@@ -1,0 +1,30 @@
+/* Contact Styles 
+============================= */
+.contact-title {
+  @extend %title;
+}
+
+.contact-pitch {
+  // width: 40%;
+}
+
+.social-icons {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  width: 15%;
+}
+
+.social-links {
+  font-size: 2em;
+
+  & > a {
+    color: $light-black;
+
+    padding: 5px;
+  }
+}
+
+#contact .wrapper {
+  flex-wrap: wrap;
+}

@@ -1,39 +1,18 @@
 /* Product Styles 
 ============================= */
 #products {
-  background-color: lighten($header-color, 10%);
   @media (min-width: 800px) {
       margin-top: 150px;
-  }
-}
-
-.products-title {
-  font-family: $font-web-sec;
-  font-size: 2.5em;
-  text-align: center;
-
-  margin: 32px auto 32px;
-  padding-top: 24px;
-
-  @media (min-width: 360px) {
-    font-size: 3em;
-  }
-  
-  @media (min-width: 640px) {
-      margin-bottom: 64px;
-      padding-top: 48px;
-  }
-
-  @media (min-width: 900px) {
-      font-size: 5em;
   }
 }
 
 .wrapper {
   display: flex;
   justify-content: center;
-  margin: 0 auto;
-  width: 90%;
+}
+
+.products-title {
+  @extend %title;
 }
 
 #featured-list {
@@ -73,6 +52,10 @@
 
   @media (min-width: 1300px) {
     margin-right: 6em;
+  }
+
+  & > a >img {
+    @extend %rounded;
   }
 }
 
