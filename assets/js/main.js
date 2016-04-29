@@ -61,7 +61,20 @@ $(window).on('scroll', function headerScrollHandler() {
 });
 
 
+$('a[href^="#"').on('click', function(event) {
+  event.preventDefault();
+  // Add active class to nav links when clicked
+  $('.nav-link a').removeClass('active');
+  $(this).addClass('active');
+  // Scroll to corresponding section of page
+  var target = this.hash;
+  var $target = $(target);
 
-
-
-
+  $('html, body').stop().animate({
+    scrollTop: $target.offset().top - 60,
+  },
+    900, function() {
+    // move to target section
+      window.location.hash = target;
+    });
+});// End click handler
