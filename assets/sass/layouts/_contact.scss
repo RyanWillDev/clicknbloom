@@ -5,19 +5,23 @@
 }
 
 .contact-pitch {
-  // width: 40%;
+  text-align: center;
 }
 
 .social-icons {
   align-items: center;
   display: flex;
-  justify-content: space-between;
-  width: 15%;
+  justify-content: center;
+  // width: 20%;
+
+  padding-left: 0;
 }
 
 .social-links {
   font-size: 2em;
 
+  width: 100%;
+  
   & > a {
     color: $light-black;
 
