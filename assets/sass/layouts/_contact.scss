@@ -1,0 +1,39 @@
+/* Contact Styles 
+============================= */
+.contact-title {
+  @extend %title;
+  margin-bottom: 16px;
+}
+
+.contact-pitch {
+  text-align: center;
+
+  @media (min-width: 1120px) {
+    width: 100%;
+  }
+}
+
+.social-icons {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  // width: 20%;
+
+  padding-left: 0;
+}
+
+.social-links {
+  font-size: 2em;
+
+  width: 100%;
+  
+  & > a {
+    color: $light-black;
+
+    padding: 5px;
+  }
+}
+
+#contact .wrapper {
+  flex-wrap: wrap;
+}

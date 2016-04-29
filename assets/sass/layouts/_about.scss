@@ -1,0 +1,48 @@
+/* About Styles 
+============================= */
+.about-content {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+
+  margin: 0 auto;
+
+  @media (min-width: 1200px) {
+    width: 60%;
+  }
+}
+
+.about-title {
+  @extend %title;
+}
+
+.about-img {
+  @extend %rounded;
+  display: inline-block;
+  max-height: 300px;
+  max-width: 600px;
+  margin-bottom: 16px;
+
+  @media (min-width: 800px) {
+    max-height: 450px;
+    max-width: 900px;
+  }
+}
+
+.about-desc {
+  display: inline-block;
+  padding: 0 10px;
+
+
+  @media (min-width: 800px) {
+    align-self: flex-start;
+    line-height: 1.25;
+    width: 45%;
+
+    padding: 16px;
+  }
+}
+
+
+
+

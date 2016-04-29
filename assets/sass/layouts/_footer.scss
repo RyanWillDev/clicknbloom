@@ -1,0 +1,15 @@
+/* Footer Styles 
+============================= */
+footer {
+  background-color: $footer-color;
+  display: flex;
+  height: 50px;
+  justify-content: center;
+  position: static;
+  bottom: 0px;
+
+  & p {
+    align-self: center;
+    text-align: center;
+  }
+}

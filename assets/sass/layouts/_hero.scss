@@ -1,0 +1,52 @@
+/* Hero Styles 
+============================= */
+
+#hero {
+  background-image: url('img/home-image.jpg');
+  background-position: 0 0, center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 85vh;
+  padding-top: 5px;
+  -webkit-filter: sepia(60%) brightness(80%) contrast(100%);
+  filter: sepia(60%) brightness(80%) contrast(100%);
+
+  @media (min-width: 640px) {
+    background-position: 0 -350px;
+  }
+
+  @media (max-width: 640px) {
+    background-position: 0 -88px, center;
+    height: 60vh;
+  }
+}
+
+.hero_content {
+  text-align: center;
+}
+
+.hero-title {
+  font-family: $font-web;
+  font-size: 3em;
+  
+  margin-top: 88px;
+  margin-bottom: 16px;
+
+  @media (min-width: 640px) {
+    font-size: 6rem;
+
+    margin-top: 160px;
+    margin-bottom: 8px;
+  }
+}
+
+.hero-desc {
+  font-family: $font-web;
+  
+  margin-top: 0;
+
+  @media(min-width: 640px) {
+    font-size: 2em
+  }
+}
+
