@@ -2,10 +2,15 @@
 ============================= */
 .contact-title {
   @extend %title;
+  margin-bottom: 16px;
 }
 
 .contact-pitch {
   text-align: center;
+
+  @media (min-width: 1120px) {
+    width: 100%;
+  }
 }
 
 .social-icons {
