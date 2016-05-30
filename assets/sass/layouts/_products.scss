@@ -4,6 +4,12 @@
   @media (min-width: 800px) {
       margin-top: 150px;
   }
+
+  @media (max-width: 375px) {
+    & .wrapper {
+      width: 95%;
+    }
+  }
 }
 
 .wrapper {
